@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dd3757a2.chunk.css",
+    "main.js": "/static/js/main.dcf8a2c6.chunk.js",
+    "main.js.map": "/static/js/main.dcf8a2c6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.382f7876.js",
+    "runtime-main.js.map": "/static/js/runtime-main.382f7876.js.map",
+    "static/js/2.c2db625d.chunk.js": "/static/js/2.c2db625d.chunk.js",
+    "static/js/2.c2db625d.chunk.js.map": "/static/js/2.c2db625d.chunk.js.map",
+    "static/js/3.4571890c.chunk.js": "/static/js/3.4571890c.chunk.js",
+    "static/js/3.4571890c.chunk.js.map": "/static/js/3.4571890c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.dd3757a2.chunk.css.map": "/static/css/main.dd3757a2.chunk.css.map",
+    "static/js/2.c2db625d.chunk.js.LICENSE.txt": "/static/js/2.c2db625d.chunk.js.LICENSE.txt",
+    "static/media/Cyberpunk_Scene.7ba7ef9f.glb": "/static/media/Cyberpunk_Scene.7ba7ef9f.glb",
+    "static/media/LargemonitorVideo.6498a8bc.mp4": "/static/media/LargemonitorVideo.6498a8bc.mp4",
+    "static/media/if-kipling.9f448973.png": "/static/media/if-kipling.9f448973.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.382f7876.js",
+    "static/js/2.c2db625d.chunk.js",
+    "static/css/main.dd3757a2.chunk.css",
+    "static/js/main.dcf8a2c6.chunk.js"
+  ]
+}
