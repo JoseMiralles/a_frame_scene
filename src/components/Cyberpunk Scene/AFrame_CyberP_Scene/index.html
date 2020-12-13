@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hello, WebVR! • A-Frame</title>
+  <meta name="description" content="Hello, WebVR! • A-Frame">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script>
+    /*Script*/
+    document.addEventListener("DOMContentLoaded", function () {
+
+      // Listen for when a user enters VR.
+      document.querySelector('a-scene').addEventListener('enter-vr', function () {
+        // Check if user is on mobile.
+        if (AFRAME.utils.device.isMobile()) {
+          // Remove expensive elements from scene if in mobile when entering VR.
+          document.querySelectorAll('.Remove_from_mobile_VR').forEach(element => {
+            element.parentNode.removeChild(element);
+          });
+        }
+      });
+
+    });
+  </script>
+
+  <style>
+    #Enter_VR_Button_Wrapper{
+      background: #F25757;
+      padding: 1rem 2rem 1rem 2rem;
+      border-bottom-right-radius: 1rem;
+      border-right: solid #ee1e1e 3px;
+    }
+    #Enter_VR_Button_Wrapper > a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-family: Tahoma, Geneva, sans-serif;
+    }
+  </style>
+
+</head>
+
+<body>
+  <a-scene background="color: dimgrey" Renderer="foveationLevel: 2; highRefreshRate: true;"
+    vr-mode-ui="enterVRButton: #myEnterVRButton;">
+
+    <!-- Asset Declarations -->
+    <a-assets>
+      <a-asset-item id="main_scene" src="Cyberpunk_Scene.glb"></a-asset-item>
+      <!-- Video Assets -->
+      <video class="Remove_from_mobile_VR" id="LargemonitorVideo" autoplay="true" loop="true" type="video/mp4"
+        src="LargemonitorVideo.mp4" webkit-playsinline playsinline preload="auto" autoload="true"></video>
+      <video class="Remove_from_mobile_VR" id="SmallMonitorVideo" autoplay="true" loop="true" type="video/mp4"
+        src="LargemonitorVideo.mp4" webkit-playsinline playsinline preload="auto" autoload="true"></video>
+    </a-assets>
+
+    <!-- Standard ligthing -->
+    <a-entity light="type: ambient; color: #c7c7c7 intensity: 1" position="-1 3.115 0.139"></a-entity>
+    <!-- Disabled on quest -->
+    <a-entity class="Remove_from_mobile_VR" light="type: point; color: #575757; intensity: 1"
+      position="1.210 3.115 0.139"></a-entity>
+
+
+    <!-- 3D object Instances -->
+    <a-entity gltf-model="#main_scene" position="0 0 0" scale="0.9 0.9 0.9"></a-entity>
+
+
+    <!-- Monitor Videos -->
+    <!-- Large Monitor -->
+    <a-video class="LargeMonitorVideo Remove_from_mobile_VR" src="#LargemonitorVideo" position="-1.552 1.157 -1.430"
+      rotation="0 45.950 0" scale="0.910 0.910 0.00001" width="1.45" height="0.7" play="true"></a-video>
+    <!-- Small Monitors, right side (Ordered from right to left.) -->
+    <a-video class="SmallMonitorVideo Remove_from_mobile_VR" src="#SmallMonitorVideo" position="-0.109 1.005 -1.774"
+      rotation="0 1.130 0" scale="0.900 0.900 0.00001" width="0.45" height="0.45" play="true"></a-video>
+    <a-video class="SmallMonitorVideo Remove_from_mobile_VR" src="#SmallMonitorVideo" position="-0.398 1.479 -1.814"
+      rotation="0 -12.210 0" scale="0.900 0.900 0.00001" width="0.45" height="0.45" play="true"></a-video>
+    <a-video class="SmallMonitorVideo Remove_from_mobile_VR" src="#SmallMonitorVideo" position="-0.587 1.005 -1.774"
+      rotation="0 1.130 0" scale="0.900 0.900 0.00001" width="0.45" height="0.45" play="true"></a-video>
+    <!-- Small Monitors, Left side (Ordered from top to Bottom.) -->
+    <a-video class="SmallMonitorVideo Remove_from_mobile_VR" src="#SmallMonitorVideo" position="-1.929 1.005 -0.526"
+      rotation="0 91.160 0" scale="0.900 0.900 0.00001" width="0.45" height="0.45" play="true"></a-video>
+    <a-video class="SmallMonitorVideo Remove_from_mobile_VR" src="#SmallMonitorVideo" position="-1.999 1.466 -0.545"
+      rotation="0 104.480 0" scale="0.900 0.900 0.00001" width="0.45" height="0.45" play="true"></a-video>
+
+
+    <!-- Rig that controls the initial X/Y position of the camera and the hands. -->
+    <a-entity id="rig" position="0 0 -0.5">
+
+      <!-- CAMERA -->
+      <a-entity id="camera" position="0 1.6 0" camera look-controls></a-entity>
+
+      <!-- VR HANDS -->
+      <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: dimgrey"></a-entity>
+      <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: dimgrey"></a-entity>
+
+    </a-entity>
+
+
+    <!-- Custom AR and VR buttons -->
+    <div id="Enter_VR_Button_Wrapper" style="z-index: 999999; position: fixed;">
+      <a id="myEnterVRButton" href="#">VR</a>
+    </div>
+
+  </a-scene>
+
+</body>
+
+</html>
